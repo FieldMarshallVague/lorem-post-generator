@@ -1,0 +1,1 @@
+export { LoremPostGenerator } from './lorem-post-generator';

@@ -1,0 +1,16 @@
+{
+  "name": "lorempostgen",
+  "version": "1.0.0",
+  "description": "Auto-generator for lorem ipsum and lorempixel posts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lorem-ipsum",
+    "lorem-pixel"
+  ],
+  "author": "Toby Worth",
+  "license": "ISC"
+}
