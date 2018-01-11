@@ -9,10 +9,13 @@ Usage
 Instantiate LoremPostGenerator with a config object then call .generate() with a number of posts.
 
     const config = {
+        startDate: new Date(2000,0,1),
+        endDate: new Date(2018,0,11),
         minContentLength: 100,
         maxContentLength: 10000,
         minImages: 0,
-        maxImages: 5
+        maxImages: 5,
+        useLoremImages: true
     }
 
     const postGenerator = new LoremPostGenerator(config);

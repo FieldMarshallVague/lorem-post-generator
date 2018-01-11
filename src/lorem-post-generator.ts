@@ -1,24 +1,5 @@
-
-/**
- * A single post, comprising date, title, body, author etc.
- */
-export interface Post {
-    creationDate: Date,
-    author: string,
-    title: string,
-    body: string,
-    tags: string
-}
-
-export interface LoremPostGeneratorConfig {
-    startDate: Date,
-    endDate: Date,
-    minContentLength: number,
-    maxContentLength: number,
-    minImages: number,
-    maxImages: number,
-    useLoremImages: boolean
-}
+import { LoremPostGeneratorConfig } from './lorem-post-generator-config';
+import { Post } from './post';
 
 export class LoremPostGenerator {
     private lorem: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/>";
