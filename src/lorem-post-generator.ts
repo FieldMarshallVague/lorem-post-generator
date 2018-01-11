@@ -37,18 +37,28 @@ export class LoremPostGenerator {
         }
     }
 
+    /**
+     * get text and splice the images in at random intervals
+    */
     private getBodyContent(textLength: number, numImages: number): string {
-        // get text and splice the images in at random intervals
+        
         let contentPieces: string[] = [];
         let text = this.getLoremText(textLength);
-        let imgIndex: number[] = new Array(numImages);
-        imgIndex.map(() => this.randomNumberBetween(0, textLength)).sort();
-
-        for (let i=0, j=0; i<imgIndex.length*2; i++, j++){
-            contentPieces[i] = text.slice(0, imgIndex[i]);
-            contentPieces[i++] = this.getLoremImage();
+        let imgIndex: number[] = new Array(3);
+        imgIndex.fill(0)
+        imgIndex = imgIndex.map(item => {
+            return this.randomNumberBetween(0, textLength);
+          }).sort();
+      
+        let placeHolder = 0;
+      
+        for (let i=0; i<imgIndex.length*2; i++){
+            contentPieces.push(text.slice(placeHolder, imgIndex[i]));
+            placeHolder = imgIndex[i];
+            contentPieces.push(this.getLoremImage());
+            i++
         }
-
+      
         return contentPieces.join("</br>");
     }
 
