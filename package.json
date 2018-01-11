@@ -12,5 +12,9 @@
     "lorem-pixel"
   ],
   "author": "Toby Worth",
-  "license": "ISC"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FieldMarshallVague/lorem-post-generator.git"
+  }
 }

@@ -6,7 +6,7 @@ Simple tool for creating a json file of posts containing lorem ipsum text and lo
 Usage
 -----
 
-Instantiate LoremPostGenerator with a config object then call .generate() with a number of posts.  Alternatively, you can pass the config into the generate method itself, along with the number of posts required.
+Instantiate LoremPostGenerator with a config object then call .generate() with a number of posts.
 
     const config = {
         minContentLength: 100,
@@ -17,4 +17,4 @@ Instantiate LoremPostGenerator with a config object then call .generate() with a
 
     const postGenerator = new LoremPostGenerator(config);
 
-    let results = postGenerator.generate(1000);
+    let posts = postGenerator.generate(1000);
