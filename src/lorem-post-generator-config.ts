@@ -2,7 +2,7 @@
 export interface LoremPostGeneratorConfig {
     startDate: Date,
     endDate: Date,
-    textTemplate?: string;
+    textTemplate: string;
     minContentLength: number,
     maxContentLength: number,
     minImages: number,

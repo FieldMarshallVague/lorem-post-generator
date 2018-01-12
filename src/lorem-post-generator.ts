@@ -2,12 +2,20 @@ import { LoremPostGeneratorConfig } from './lorem-post-generator-config';
 import { Post } from './post';
 
 export class LoremPostGenerator {
-    private lorem: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/>";
 
-    constructor(private config: LoremPostGeneratorConfig){
-        if (!config.textTemplate){
-            config.textTemplate = this.lorem;
-        }
+    private config: LoremPostGeneratorConfig = {
+        startDate: new Date(2000,0,1),
+        endDate: new Date(2018,0,11),
+        textTemplate: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/>",
+        minContentLength: 100,
+        maxContentLength: 10000,
+        minImages: 0,
+        maxImages: 5,
+        useLoremImages: true
+    }
+
+    constructor(configOverride: object){
+        Object.assign(this.config, configOverride);
     }
 
     generate(numberOfPosts: number){
@@ -69,14 +77,14 @@ export class LoremPostGenerator {
      * Use the template text to generate a string matching [length]
      */
     private getLoremText(length: number): string {
-        const templateLength = this.lorem.length;
+        const templateLength = this.config.textTemplate.length;
         let templateMultiplier = 1;
 
         if (length > templateLength){
             templateMultiplier = Math.ceil(length / templateLength);
         }
 
-        return this.lorem.repeat(templateMultiplier).slice(0, length);
+        return this.config.textTemplate.repeat(templateMultiplier).slice(0, length);
     }
 
     private getLoremImage(): string {
