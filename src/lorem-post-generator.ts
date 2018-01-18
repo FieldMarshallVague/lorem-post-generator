@@ -102,7 +102,7 @@ export class LoremPostGenerator {
     }
 
     private randomNumberBetween(min: number, max: number){
-        return Math.floor((Math.random() * max + 1) + min);
+        return Math.floor((Math.random() * (max + 1)) + min);
     }
 
     private randomDate(start: Date, end: Date) {
