@@ -10,7 +10,7 @@ export class LoremPostGenerator {
         minContentLength: 100,
         maxContentLength: 10000,
         minImages: 0,
-        maxImages: 5,
+        maxImages: 2,
         useLoremImages: true
     }
 
@@ -61,18 +61,18 @@ export class LoremPostGenerator {
             return this.randomNumberBetween(0, textLength);
           }).sort();
       
-        if (imgIndex.length === 0){ imgIndex.push(-1); }
-
-        let placeHolder = 0;
-      
-        for (let i=0; i<imgIndex.length*2; i++){
-            if (imgIndex[i] !== -1){
+        if (imgIndex.length === 0){ 
+            contentPieces.push(text); 
+        }
+        else {
+            let placeHolder = 0;
+        
+            for (let i=0; i<imgIndex.length*2; i++){
                 contentPieces.push(text.slice(placeHolder, imgIndex[i]));
                 placeHolder = imgIndex[i];
                 contentPieces.push(this.getLoremImage());
+                i++
             }
-
-            i++
         }
       
         return contentPieces.join("</br>");
