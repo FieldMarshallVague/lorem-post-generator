@@ -55,18 +55,23 @@ export class LoremPostGenerator {
         
         let contentPieces: string[] = [];
         let text = this.getLoremText(textLength);
-        let imgIndex: number[] = new Array(3);
+        let imgIndex: number[] = new Array(numImages);
         imgIndex.fill(0)
         imgIndex = imgIndex.map(item => {
             return this.randomNumberBetween(0, textLength);
           }).sort();
       
+        if (imgIndex.length === 0){ imgIndex.push(-1); }
+
         let placeHolder = 0;
       
         for (let i=0; i<imgIndex.length*2; i++){
-            contentPieces.push(text.slice(placeHolder, imgIndex[i]));
-            placeHolder = imgIndex[i];
-            contentPieces.push(this.getLoremImage());
+            if (imgIndex[i] !== -1){
+                contentPieces.push(text.slice(placeHolder, imgIndex[i]));
+                placeHolder = imgIndex[i];
+                contentPieces.push(this.getLoremImage());
+            }
+
             i++
         }
       
