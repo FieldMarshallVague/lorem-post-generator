@@ -22,7 +22,14 @@ Instantiate LoremPostGenerator with a config object then call .generate() with a
 
     const postGenerator = new LoremPostGenerator(config);
 
+    // Synchronous
     let posts = postGenerator.generate(1000);
+
+    // Rx Observable
+    let asyncPosts = postGenerator.generateAsync(100);
+
+    // Rx BehaviorSubject with [maxAsyncDelay] between pages of [streamPageSize]
+    let streamedPosts = postGenerator.generateSubject(100);
 
 ### startDate and endDate
 
@@ -43,3 +50,15 @@ Images are placed randomly within the post body, to give the overall feed an aut
 ### useLoremImages
 
 You can use Lorem images from Picsum or just default to empty image placeholders.
+
+### minAsyncDelay
+
+Not implemented yet
+
+### maxAsyncDelay
+
+Used for the delay in each page being emitted by generateSubject's stream
+
+### streamPageSize
+
+The size of each page emitted by generateSubject
