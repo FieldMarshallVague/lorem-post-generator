@@ -7,5 +7,8 @@ export interface LoremPostGeneratorConfig {
     maxContentLength: number,
     minImages: number,
     maxImages: number,
-    useLoremImages: boolean
+    useLoremImages: boolean,
+    minAsyncDelay: number,
+    maxAsyncDelay: number,
+    streamPageSize: number
 }

@@ -15,6 +15,9 @@ Instantiate LoremPostGenerator with a config object then call .generate() with a
         minImages: 0,
         maxImages: 5,
         useLoremImages: true
+        minAsyncDelay: 0,
+        maxAsyncDelay: 200,
+        streamPageSize: 5
     }
 
     const postGenerator = new LoremPostGenerator(config);
