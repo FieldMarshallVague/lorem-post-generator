@@ -14,15 +14,15 @@ import { Post } from './post';
 export class LoremPostGenerator {
   private config: LoremPostGeneratorConfig = {
     startDate: new Date(2000, 0, 1),
-    endDate: new Date(2018, 0, 11),
+    endDate: new Date(),
     textTemplate:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br/>',
-    minContentLength: 100,
+    minContentLength: 10,
     maxContentLength: 2000,
     minImages: 0,
-    maxImages: 1,
+    maxImages: 0.51,
     useLoremImages: true,
-    minAsyncDelay: 0,
+    minAsyncDelay: 10,
     maxAsyncDelay: 500,
     streamPageSize: 5
   };
