@@ -6,21 +6,27 @@ Simple tool for creating a json file of posts containing lorem ipsum text and lo
 
 Instantiate LoremPostGenerator with a config object then call .generate() with a number of posts.
 
+    // choose one of the following imports depending on your use case
+    var lpg = require("lorempostgen");                  // NodeJS (Imports not support yet)
+    import {LoremPostGenerator} from 'lorempostgen';    // Typescript/Babel-fied JS
+
     const config = {
         startDate: new Date(2000,0,1),
         endDate: new Date(2018,0,11),
-        textTemplate: "blah ",
+        textTemplate: "blah blah blah...",
         minContentLength: 100,
         maxContentLength: 10000,
         minImages: 0,
         maxImages: 5,
-        useLoremImages: true
+        useLoremImages: true,
         minAsyncDelay: 0,
         maxAsyncDelay: 200,
         streamPageSize: 5
     }
 
-    const postGenerator = new LoremPostGenerator(config);
+    // choose one of the following instantiations depending on your use case
+    const postGenerator = new lpg.LoremPostGenerator(config);   // NodeJS
+    const postGenerator = new LoremPostGenerator(config);       // Typescript
 
     // Synchronous
     let posts = postGenerator.generate(1000);
